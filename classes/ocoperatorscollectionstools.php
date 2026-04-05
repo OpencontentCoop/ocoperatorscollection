@@ -46,6 +46,7 @@ class OCOperatorsCollectionsTools
         extract( $args );
         $data = self::gmapStaticImageGetData( $args );        
         return array(
+            // @phpstan-ignore variable.undefined
             'scope' => $attribute->attribute( 'data_type_string' ),
             'binarydata' => $data
         );
@@ -69,6 +70,7 @@ class OCOperatorsCollectionsTools
         extract( $args );
         $markers = array();
         $query = array();
+        // @phpstan-ignore variable.undefined
         foreach( $parameters as $key => $value )
         {
             if ( is_array( $value ) )
@@ -117,6 +119,7 @@ class OCOperatorsCollectionsTools
         $baseUrl = 'http://maps.googleapis.com/maps/api/staticmap';
         $url = "$baseUrl?$stringQuery";
         $data = eZHTTPTool::getDataByURL( $url );
+        // @phpstan-ignore variable.undefined
         eZDebug::writeNotice( "Generate static map for attribute {$attribute->attribute( 'id' )}: $url", __METHOD__ );
         return 'data:image/PNG;base64,' . base64_encode( $data );
     }
